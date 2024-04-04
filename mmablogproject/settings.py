@@ -41,8 +41,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -77,12 +77,13 @@ WSGI_APPLICATION = 'mmablogproject.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default':{ 
-        'ENGINE': "django.db.bakends.sqlite3",
-        'NAME': BASE_DIR / 'db.sqlite3'
-        }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
-DATABASES['default'] = dj_database_url.parse("postgres://mm1:DxeUX4eMsz9osDF01nKPphT1TbFUFQ9K@dpg-co73t46n7f5s738g235g-a.oregon-postgres.render.com/mmablog")
+
+DATABASES['default'] = dj_database_url.parse("postgres://mmablog:P1W8bPcIEyetdNzl3i1DQHDHn9CLf6gp@dpg-co7di6ed3nmc73e8tlpg-a.oregon-postgres.render.com/mmablog_novg")
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
