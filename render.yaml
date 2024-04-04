@@ -10,7 +10,7 @@ services:
     name: mmablog
     runtime: python
     buildCommand: "./build.sh"
-    startCommand: "python -m gunicorn mmablogproject.asgi:application -k uvicorn.workers.UvicornWorker"
+    startCommand: "gunicorn mmablogproject.asgi:application -k uvicorn.workers.UvicornWorker"
     envVars:
       - key: "postgres://mm1:DxeUX4eMsz9osDF01nKPphT1TbFUFQ9K@dpg-co73t46n7f5s738g235g-a/mmablog"
         fromDatabase:
