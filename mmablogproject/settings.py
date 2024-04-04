@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'mmablogproject.wsgi.application'
 DATABASES = {
     'default':dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        default='postgres://mm1:DxeUX4eMsz9osDF01nKPphT1TbFUFQ9K@dpg-co73t46n7f5s738g235g-a/mmablog',
         conn_max_age=600
     )
 }
