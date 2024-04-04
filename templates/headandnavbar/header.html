@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    {% if page_name == 'home' %}
+    <title>MMA Master 1 - N01 combat sport news website</title>
+    <meta property="og:title" content="MMA Master 1 - N01 combat sport news website">
+    <meta property="og:description" content="Home of all combart Sport News">
+    
+    <meta property="og:image" content="{% static 'img/mmamaster1.jpg' %}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{% static 'img/mmamaster1.jpg' %}">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@MMA_master_1">
+    <meta property="twitter:title" content="MMA Master 1 - N01 combat sport news website">
+    <meta property="twitter:description" content="Home of all combart Sport News">
+    <meta property="twitter:image" content="{% static 'img/mmamaster1.jpg' %}">
+
+
+
+    {% elif page_name == 'article' %}
+
+    <title>{{blog.topic}} - MMA master1</title>
+    <meta property="og:title" content="{{blog.topic}} - MMA master1">
+    <meta property="og:description" content="{{blog.article|linebreaksbr}}">
+    <meta property="og:image" content="{{blog.topic_image.url}}">
+    <meta property="og:type" content="{{request.get_host}">
+    <meta property="og:url" content="{{request.path}}">
+    <meta property="twitter:card" content="{{blog.topic_image.url}}">
+    <meta property="twitter:site" content="@MMA_master_1">
+    <meta property="twitter:title" content="{{blog.topic}} - MMA master1">
+    <meta property="twitter:description" content="{{blog.article|linebreaksbr}}">
+    <meta property="twitter:image" content="{{blog.topic_image.url}}">
+    {% else %}
+    <title>MMA Master 1 - {{category}} News</title>
+    <meta property="og:title" content="MMA Master 1 - {{category}} News">
+    <meta property="og:description" content="{{category}} News, Breaking New, what's happening">
+
+    <meta property="og:image" content="{% static 'img/mmamaster1.jpg' %}">
+    <meta property="og:type" content="{{request.get_host}}">
+    <meta property="og:url" content="{{request.path}}">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@MMA_master_1">
+    <meta property="twitter:title" content="{{category}} Breaking News">
+    <meta property="twitter:description" content="{{category}} News, Breaking New, what's happening">
+    <meta property="twitter:image" content="{% static 'img/mmamaster1.jpg' %}">
+    {% endif %}
+
+
+    <!-- Favicon -->
+    <link href="{% static 'img/mmamaster1.jpg' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid d-none d-lg-block">
+        <!-- <div class="row align-items-center bg-dark px-lg-5">
+            <div class="col-lg-9">
+                <nav class="navbar navbar-expand-sm bg-dark p-0">
+                    <ul class="navbar-nav ml-n2">
+                        <li class="nav-item border-right border-secondary">
+                            <a class="nav-link text-body small" href="#">Monday, January 1, 2045</a>
+                        </li>
+                        <li class="nav-item border-right border-secondary">
+                            <a class="nav-link text-body small" href="#">Advertise</a>
+                        </li>
+                        <li class="nav-item border-right border-secondary">
+                            <a class="nav-link text-body small" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-body small" href="#">Login</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3 text-right d-none d-md-block">
+                <nav class="navbar navbar-expand-sm bg-dark p-0">
+                    <ul class="navbar-nav ml-auto mr-n2">
+                        <li class="nav-item">
+                            <a class="nav-link text-body" href="#"><small class="fab fa-twitter"></small></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-body" href="#"><small class="fab fa-facebook-f"></small></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-body" href="#"><small class="fab fa-linkedin-in"></small></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-body" href="#"><small class="fab fa-instagram"></small></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-body" href="#"><small class="fab fa-google-plus-g"></small></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-body" href="#"><small class="fab fa-youtube"></small></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div> -->
+        <div class="row align-items-center bg-white py-3 px-lg-5">
+            <div class="col-lg-4">
+                <a href="index.html" class="navbar-brand p-0 d-none d-lg-block">
+                    <h1 class="m-0 display-4 text-uppercase text-primary">MMA<span
+                            class="text-secondary font-weight-normal">Master1</span></h1>
+                </a>
+            </div>
+            <div class="col-lg-8 text-center text-lg-right">
+                <a href="https://htmlcodex.com"><img class="img-fluid" src="img/ads-728x90.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    {% include 'headandnavbar/navbar.html' %}
+
+    
+    {% block content %}
+        
+    {% endblock content %}
+    {% include 'footerbar/footer.html' %}
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+            <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
