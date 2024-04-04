@@ -78,14 +78,11 @@ WSGI_APPLICATION = 'mmablogproject.wsgi.application'
 
 DATABASES = {
     'default':{ 
-        'ENGINE': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgres://mm1:DxeUX4eMsz9osDF01nKPphT1TbFUFQ9K@dpg-co73t46n7f5s738g235g-a.oregon-postgres.render.com/mmablog',
-        conn_max_age=600
-    )
+        'ENGINE': "django.db.bakends.sqlite3",
+        'NAME': BASE_DIR / 'db.sqlite3'
         }
 }
-# DATABASES['default'] = dj_database_url.parse("postgres://mm1:DxeUX4eMsz9osDF01nKPphT1TbFUFQ9K@dpg-co73t46n7f5s738g235g-a/mmablog")
+DATABASES['default'] = dj_database_url.parse("postgres://mm1:DxeUX4eMsz9osDF01nKPphT1TbFUFQ9K@dpg-co73t46n7f5s738g235g-a.oregon-postgres.render.com/mmablog")
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
