@@ -11,26 +11,18 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import dj_database_url
 from pathlib import Path
-import environ
 import os
 
-env = environ.Env(
-    DEBUG=(bool, False)
-)
-environ.Env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
-SECRET_KEY=env('SECRET_KEY')
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
-DEBUG=env('DEBUG')
+DEBUG = os.environ.get("DEBUG", "False").lower()== "true"
 
-ALLOWED_HOSTS = ['https://mmablog.onrender.com', '*']
-RENDER_EXTERNAL_HOSTNAME=env('RENDER_EXTERNAL_HOSTNAME')
-if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 # Application definition
 
@@ -82,13 +74,12 @@ WSGI_APPLICATION = 'mmablogproject.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default':dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgres://mm1:DxeUX4eMsz9osDF01nKPphT1TbFUFQ9K@dpg-co73t46n7f5s738g235g-a/mmablog',
-        conn_max_age=600
-    )
+    'default':{ 
+        'ENGINE': "django.db.bakends.sqlite3",
+        'NAME': BASE_DIR / 'db.sqlite3'
+        }
 }
-
+DATABASES['default'] = dj_database_url.parse("'postgres://mm1:DxeUX4eMsz9osDF01nKPphT1TbFUFQ9K@dpg-co73t46n7f5s738g235g-a/mmablog")
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
